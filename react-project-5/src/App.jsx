@@ -1,16 +1,19 @@
+import { useEffect, useState } from 'react';
 import './App.css'
+import LogIn from './components/LogIn'
 
 function App() {
-  let data
-  fetch("http://localhost:3000/users")
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+  const [data, setData] = useState(null)
+  useEffect(() => {
+      fetch("http://localhost:3000/users")
+      .then((res) => res.json())
+      .then((dat) => {setData(dat); console.log(data)})
+  }, [])
 
   return (
     <>
-     <>
-     hiii
-     </>
+     <h1>{!data ? "loading..." : data[0].name}</h1>
+     {/* <LogIn /> */}
     </>
   )
 }
