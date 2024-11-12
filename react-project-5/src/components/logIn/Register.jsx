@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Register() {
     const [name, setName] = useState("")
@@ -39,6 +40,8 @@ export default function Register() {
         <input placeholder="email" onChange={({target}) => setMail(target.value)} /> <br />
         <input placeholder="phone" onChange={({target}) => setPhone(target.value)} /> <br />
         <button type="submit" onClick={handelSubmit}>sign up</button>
+        <br />
+        <p>Already have an account? <Link to="/login"> log in</Link></p>
     </div>
   )
 }

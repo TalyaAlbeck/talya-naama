@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 
 import './App.css'
-import LogIn from './components/LogIn'
-import Home from './components/Home';
-import Info from './components/Info';
+import LogIn from './components/logIn/LogIn'
+import Register from './components/logIn/Register';
+import Home from './components/userInfo/Home';
+import Info from './components/userInfo/Info';
+import Todo from './components/userInfo/Todo';
+import Posts from './components/userInfo/Posts';
+import Album from './components/userInfo/Album';
 import Layout from './components/Layout';
-import Todo from './components/Todo';
-import Posts from './components/Posts';
-import Album from './components/Album';
-import Register from './components/Register';
 
 function App() {
   const [data, setData] = useState(null)
@@ -31,7 +31,7 @@ function App() {
      <Routes>
         <Route path="/" element={<LogIn />} />
         <Route path="/login" element={<LogIn />} />
-        {/* <Route path="/register" element={<Register />} /> */}
+        <Route path="/register" element={<Register />} />
 
         <Route element={<Layout />}>
             <Route path="/home" element={<Home />}>
