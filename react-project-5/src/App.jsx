@@ -25,13 +25,13 @@ function App() {
 
     <Router>
      
-     <h1>{!data ? "loading..." : data[0].name}</h1>
+     <h1>{!data ? "loading..." : data[0].username}</h1>
 
 
      <Routes>
         <Route path="/" element={<LogIn />} />
         <Route path="/login" element={<LogIn />} />
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/register" element={<Register />} /> */}
 
         <Route element={<Layout />}>
             <Route path="/home" element={<Home />}>
