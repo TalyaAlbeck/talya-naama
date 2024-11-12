@@ -6,6 +6,7 @@ export default function LogIn() {
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
     const [data, setData] = useState(null)
+    
     useEffect(() => {
       fetch("http://localhost:3000/users")
       .then((res) => res.json())
@@ -14,7 +15,7 @@ export default function LogIn() {
 
     function handelSubmit() {
         for (let user in data) {
-            if(userName === data[user].name && password === data[user].website) {
+            if(userName === data[user].username && password === data[user].website) {
                 alert(`hello, ${userName}`);
                 return data[user].name;
             } else {
@@ -29,7 +30,7 @@ export default function LogIn() {
             <input placeholder="userName" onChange={({target}) => setUserName(target.value)} /> <br />
             <input placeholder="password" onChange={({target}) => setPassword(target.value)} /> <br />
             <button type="submit" onClick={handelSubmit}>log in</button>
-            {/* <Link to="/">dont have user?  click here</Link> */}
+            {/* <Link to="/">dont have user? click here</Link> */}
         </>
     )
 }
