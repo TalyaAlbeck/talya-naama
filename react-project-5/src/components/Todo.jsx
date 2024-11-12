@@ -1,1 +1,3 @@
-export default function Todo (){}
+export default function Todo (){
+    return (<>hi from todo</>)
+}

@@ -10,10 +10,13 @@ export default function LogIn() {
     useEffect(() => {
       fetch("http://localhost:3000/users")
       .then((res) => res.json())
-      .then((dat) => {setData(dat); console.log(data)})
+      .then((dat) => {setData(dat); console.log("hello from fetch")})
   }, [])
 
     function handelSubmit() {
+        console.log('userName: ', userName);
+        console.log('data[user].username: ', data[user].username);
+        
         for (let user in data) {
             if(userName === data[user].username && password === data[user].website) {
                 alert(`hello, ${userName}`);
@@ -27,9 +30,9 @@ export default function LogIn() {
 
     return (
         <>
-            <input placeholder="userName" /> <br />
-            <input placeholder="password" /> <br />
-            <button type="submit">log in</button>
+            <input placeholder="userName" onChange={({target}) => setUserName(target.value)}/> <br />
+            <input placeholder="password" onChange={({target}) => setPassword(target.value)}/> <br />
+            <button type="submit" onClick={handelSubmit}>log in</button>
             <Link to="/register">dont have user?  click here</Link>
         </>
     )
