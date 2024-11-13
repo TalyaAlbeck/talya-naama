@@ -10,6 +10,7 @@ export default function Register() {
     const [phone, setPhone] = useState(0)
 
     const [data, setData] = useState(null)
+    const [registered, setRegistered] = useState(false)
 
     useEffect(() => {
         fetch("http://localhost:3000/users")
@@ -29,8 +30,12 @@ export default function Register() {
                 website: password
             })
         })
+        .then(()=>showRegistered())
     }
     
+    function showRegistered(){
+       setRegistered(true)
+    }
 
   return (
     <div className='register'>
@@ -42,6 +47,7 @@ export default function Register() {
         <button type="submit" onClick={handelSubmit}>sign up</button>
         <br />
         <p>Already have an account? <Link to="/login"> log in</Link></p>
+        {registered && <p>registraion completed!</p>}
     </div>
   )
 }

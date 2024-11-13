@@ -4,11 +4,11 @@ import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom
 import './App.css'
 import LogIn from './components/logIn/LogIn'
 import Register from './components/logIn/Register';
-import Home from './components/userInfo/Home';
-import Info from './components/userInfo/Info';
-import Todo from './components/userInfo/Todo';
-import Posts from './components/userInfo/Posts';
-import Album from './components/userInfo/Album';
+import Home from './components/main/Home';
+import Info from './components/main/Info';
+import Todo from './components/main/Todo';
+import Posts from './components/main/Posts';
+import Album from './components/main/Album';
 import Layout from './components/Layout';
 
 function App() {
