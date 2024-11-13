@@ -3,12 +3,20 @@ import { useState, useEffect } from "react";
 export default function Todo (){
 
     const [list, setList] = useState([])
+    const currentUser = JSON.parse(localStorage.getItem("current User"))
 
-    useEffect(() => {
         fetch("http://localhost:3000/users/")
         .then((res) => res.json())
-        .then((dat) => {setList(dat[13].todo);})
-    }, [])
+        .then((data) => {getUser(data)})
+
+
+    function getUser(data) {
+        for (let user in data) {
+            if(currentUser === data[user].username) {
+                setList(data[user].todo)
+            }
+        } 
+    }
 
     const handleCheck = (id) => {
         const listItems = list.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
