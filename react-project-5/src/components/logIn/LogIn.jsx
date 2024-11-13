@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import App from "../../App";
+import { fetchUsers } from "../fetching";
 
 export default function LogIn() {
   const [userName, setUserName] = useState("");
@@ -8,23 +9,18 @@ export default function LogIn() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/users")
-      .then((res) => res.json())
-      .then((dat) => {
-        setData(dat);
-        console.log("hello from fetch");
-      });
-  }, []);
+    fetchUsers(data, setData)
+}, [])
 
   function handelSubmit() {
     for (let user in data) {
       if (userName === data[user].username && password === data[user].website) {
-        <Link to="/register">dont have user? click here</Link>;
-        localStorage.setItem("current User", JSON.stringify(userName));
-        return true, console.log(data[user]);
+        <Link to="/register">dont have user? click here</Link>;        
+        localStorage.setItem("current User", JSON.stringify(data[user]));
+        return true;
       }
     }
-    alert("name or password are incorrect");
+    setTimeout(alert("name or password are incorrect"), 2000);
   }
 
   return (

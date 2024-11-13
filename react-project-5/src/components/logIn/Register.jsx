@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MoreInfo from "./MoreInfo"; // Import the second step component
+import { fetchUsers } from "../fetching";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -12,18 +13,13 @@ export default function Register() {
   const navigate = useNavigate();
 
   const [data, setData] = useState(null)
-    
     useEffect(() => {
-      fetch("http://localhost:3000/users")
-      .then((res) => res.json())
-      .then((dat) => {setData(dat); console.log(data)})
+      fetchUsers(data, setData)
   }, [])
 
   function handleNext() {
     if (password !== verifyPassword) {
-      alert("Passwords do not match");
-      console.log(data);
-      
+      alert("Passwords do not match");      
     } else if (checkExistingUsers(name)) {
       alert("this user is already exist");
     } else {
@@ -33,7 +29,7 @@ export default function Register() {
 
   function checkExistingUsers(name) {
     for (let user in data) {
-      if (data[user].name) {
+      if (data[user].name === name) {
         return true;
       }
     }

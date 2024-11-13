@@ -23,7 +23,7 @@ export default function SearchItem() {
           onChange={({ target }) => setSearch(target.value)}
         />
       </form>
-      <Todo list={list.filter((item) => item.item.toLowerCase().includes(search.toLowerCase()))} setList={setList} />
+      <Todo list={list.filter((item) => {return item.item.toLowerCase().includes(search.toLowerCase())})} setList={setList} />
     </>
   );
 }

@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import apiRequests, {updateList} from '../../server';
+import { updateList } from '../../server';
+import { fetchUsers } from "../../fetching";
 
 export default function AddItem({list, setList}) {
     const [newItem, setNewItem] = useState('');
+
+    const userId = JSON.parse(localStorage.getItem("current User")).id
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -18,7 +21,7 @@ export default function AddItem({list, setList}) {
         const listItems = [...list, myNewItem];
         setList(listItems);
         localStorage.setItem('shoppinglist', JSON.stringify(listItems));
-        updateList(1, listItems)
+        updateList(userId, listItems)
     }
 
   return (

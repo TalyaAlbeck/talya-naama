@@ -1,5 +1,6 @@
 // MoreInfo.js
 import React, { useState, useEffect } from "react";
+import { fetchUsers } from "../fetching";
 
 export default function MoreInfo({ name, website, navigate }) {
   const [userName, setUserName] = useState("");
@@ -7,14 +8,12 @@ export default function MoreInfo({ name, website, navigate }) {
   const [phone, setPhone] = useState("");
   const [todo, setTodo] = useState([]);
   const [registered, setRegistered] = useState(false);
+  
 
   const [data, setData] = useState(null)
-    
-    useEffect(() => {
-      fetch("http://localhost:3000/users")
-      .then((res) => res.json())
-      .then((dat) => {setData(dat); console.log(data)})
-  }, [])
+  useEffect(() => {
+    fetchUsers(data, setData)
+}, [])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -23,7 +22,7 @@ export default function MoreInfo({ name, website, navigate }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        id: data.length + 1,
+        id: JSON.stringify(data.length + 1),
         name,
         username: userName,
         email,
@@ -31,11 +30,13 @@ export default function MoreInfo({ name, website, navigate }) {
         website,
         todo,
       }),
-    }).then(() => {
-      localStorage.setItem("current User", JSON.stringify(userName));
+    })
+    .then((res) => res.json())
+    .then((dat) => {
+      localStorage.setItem("current User", JSON.stringify(dat));
       setRegistered(true);
       setTimeout(() => navigate("/home"), 1300);
-    });
+    })
   }
 
   return (
