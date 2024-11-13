@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 export default function Layout(){
-   function logOut(){
+   
 
-   }
+   
     return(
    <>
     <nav>
-        <Link to="/info">My Info</Link>
+        <Link to="/home">Home</Link>
         <br/>
         <Link to="/posts">Posts</Link>
         <br/>
@@ -16,7 +16,9 @@ export default function Layout(){
 
     </nav>
     <footer>
-    <button onClick={logOut}>Log Out</button>
+    <Link to="/login" replace>log out</Link>
     </footer>
-    </>)
+    <Outlet/>
+    </>
+    )
 }
