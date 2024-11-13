@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register() {
     const [name, setName] = useState("")
@@ -10,7 +10,10 @@ export default function Register() {
     const [phone, setPhone] = useState(0)
 
     const [data, setData] = useState(null)
+    const [primaryData, setPrimaryData] = useState(false)
     const [registered, setRegistered] = useState(false)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch("http://localhost:3000/users")
@@ -31,11 +34,13 @@ export default function Register() {
                 todo: []
             })
         })
-        .then(()=>showRegistered())
+        .then(()=>localStorage.setItem("current User", JSON.stringify(userName)))
+        .then(()=>{setRegistered(true);setTimeout(()=>navigate("/home"),2000 )})
     }
     
     function showRegistered(){
-       setRegistered(true)
+       
+       setTimeout(()=>navigate("/home"),2500 )
     }
 
   return (
