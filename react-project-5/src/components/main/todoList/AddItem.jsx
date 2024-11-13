@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { updateList } from '../../server';
-import { fetchUsers } from "../../fetching";
 
 export default function AddItem({list, setList}) {
     const [newItem, setNewItem] = useState('');

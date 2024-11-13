@@ -169,6 +169,28 @@
           }
         ]
       ]
+    },
+    {
+      "id": "12",
+      "name": "lavi",
+      "username": "lavivush",
+      "email": "lavi@gmail.com",
+      "phone": "0524301067",
+      "website": "0524301067",
+      "todo": [
+        [
+          {
+            "id": 1,
+            "item": "ninini",
+            "checked": false
+          },
+          {
+            "id": 2,
+            "item": "nanana",
+            "checked": false
+          }
+        ]
+      ]
     }
   ],
   "posts": [

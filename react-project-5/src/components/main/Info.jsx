@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 
 export default function Info() {
-  const currentUser = JSON.parse(localStorage.getItem("current User"));
+  const currentUser = JSON.parse(localStorage.getItem("current User")).username;
   const [userInfo, setUserInfo] = useState();
 
   function getUser(data) {
     for (let user in data) {
       if (currentUser === data[user].username) {
         setUserInfo(data[user]);
+        
       }
     }
   }
@@ -18,12 +19,11 @@ export default function Info() {
       .then((data) => {
         getUser(data);
       });
-    userInfo;
-  }, []);
+  }, [userInfo]);
 
   return (
     <>
-      {userInfo && (
+      {userInfo ? (
         <>
           Name: {JSON.stringify(userInfo.username)}
           <br />
@@ -32,7 +32,8 @@ export default function Info() {
           Phone: {JSON.stringify(userInfo.phone)}
           <br />
         </>
-      )}
+      ) : 
+      <h1>loading...</h1>}
     </>
   );
 }

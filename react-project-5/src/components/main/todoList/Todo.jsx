@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import AddItem from "./AddItem";
-import apiRequests, {updateList} from '../../server';
 
 export default function Todo({ list, setList }) {
   const currentUser = JSON.parse(localStorage.getItem("current User"));
@@ -17,7 +16,8 @@ export default function Todo({ list, setList }) {
   function getUser(data) {
     for (let user in data) {
       if (currentUser.username === data[user].username) {
-        setList(data[user].todo[0]);
+        setList(data[user].todo);
+        // setList(data[user].todo[0]);
         console.log('data[user].todo: ', data[user].todo);  
       }
     }
