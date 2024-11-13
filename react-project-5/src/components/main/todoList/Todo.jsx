@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import AddItem from "./AddItem";
-import SearchItem from "./searchItem";
 
 export default function Todo ({list, setList}){
 

@@ -6,11 +6,11 @@ import LogIn from './components/logIn/LogIn'
 import Register from './components/logIn/Register';
 import Home from './components/main/Home';
 import Info from './components/main/Info';
-// import Todo from './components/main/todoList/Todo';
 import SearchItem from './components/main/todoList/searchItem';
 import Posts from './components/main/Posts';
 import Album from './components/main/Album';
 import Layout from './components/Layout';
+import apiRequests from './components/server';
 
 function App() {
   return (
