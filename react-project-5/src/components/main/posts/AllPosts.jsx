@@ -1,15 +1,18 @@
-
 import { useState, useEffect } from "react";
+import Comments from "./comments";
 
 export default function AllPosts() {
   const [posts, setPosts] = useState([])
+  const [showComment, setShowComment] = useState(false)
+  const [commentIndex, setCommentIndex] = useState(0)
   const currentUser = JSON.parse(localStorage.getItem("current User")).id;
+
+  let disable = false;
 
   useEffect(() => {
     fetch("http://localhost:3000/posts/")
       .then((res) => res.json())
       .then((data) => {
-        // getUser(data);
         console.log('data: ', data);
         setPosts(data)
       });
@@ -24,34 +27,48 @@ export default function AllPosts() {
   //   }
   // }
 
-  // const handleCheck = async (id) => {
-  //   const listItems = list.map((item) => 
-  //     (item.id === id ? { ...item, checked: !item.checked } : item));
-  //   setList(listItems);
-  //   localStorage.setItem("shoppinglist", JSON.stringify(listItems));
-  //   updateList(1, listItems)
-  // };
+  function commentHandler(item) { 
+    if (!showComment) {
+    setShowComment(true)
+    } else {
+      setShowComment(false)
+    }
+  }
 
-  // const handelDelete = async (id) => {
-  //   const listItems = list.filter((item) => item.id !== id);
-  //   setList(listItems);
-  //   localStorage.setItem("shoppinglist", JSON.stringify(listItems));
-  //   updateList(1, listItems)
-  // };
+console.log(posts[commentIndex]);
+
+
 
   return (
     <>
       {posts ? (
-        <ul>
-          {posts.map((item) => (
-            <li className="item" key={item.id}>
-              {/* <input type="checkbox" onChange={() => handleCheck(item.id)} checked={item.checked} />
-              <label style={item.checked ? { textDecoration: "line-through" } : null}>{item.item}</label>
-              <button onClick={() => handelDelete(item.id)}>-</button> */}
-              {item.body}
-            </li>
-          ))}
-        </ul>
+        // <ul key="1">
+        //   {posts.map((item) => (
+        //     item.id <= 10 &&
+        //     <div  className="comment" key={item.id}>
+        //     <p key={item.title}>
+        //       {item.body}
+        //     </p>
+        //     <button onClick={() => {commentHandler(item);
+        //       // item.isShoed = true;
+        //     }}>comments</button>
+        //     {showComment && <Comments post={item} />}
+        //     </div>
+        //   ))}
+        //   <br /><br />
+
+        <div className="shownPost">
+          {JSON.stringify(posts[commentIndex])}
+          <br/><button className="previousPost" disabled={disable} onClick={() => {
+            commentIndex <= 0 ? disable = true : 
+            setCommentIndex((prev) => prev - 1)            
+            }}>previous post</button>
+          <button className="nextPost" onClick={() => {
+            commentIndex > posts.length ? disable = true : 
+            setCommentIndex((prev) => prev + 1)
+          }}>next post</button>
+        </div>
+        // </ul>
       ) : (
         <p>loading...</p>
       )}

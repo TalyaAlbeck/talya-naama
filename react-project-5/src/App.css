@@ -27,10 +27,10 @@ nav {
 }
 
 footer {
-  position: absolute;
-  bottom: 40px;
+  position: relative;
+  bottom: -310px;
   text-align: center;
-  left: 48%;
+  left: -5%;
 }
 
 button {
@@ -43,4 +43,14 @@ button {
 }
 #addItem {
   width: 150px;
+}
+
+.comment, .shownPost {
+  background-color: lightblue;
+  width: 500px;
+  min-height: 50px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+  border: 2px solid rgb(52, 134, 181);
 }

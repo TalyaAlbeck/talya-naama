@@ -1,24 +1,26 @@
 import { useState, useEffect } from "react";
 import AddItem from "./AddItem";
+import { updateList } from '../../server';
 
 export default function Todo({ list, setList }) {
   const currentUser = JSON.parse(localStorage.getItem("current User"));
+  const userId = currentUser.id
+
 
   useEffect(() => {
     fetch("http://localhost:3000/users/")
       .then((res) => res.json())
       .then((data) => {
         getUser(data);
-        console.log('data: ', data);
       });
   }, []);
 
   function getUser(data) {
     for (let user in data) {
       if (currentUser.username === data[user].username) {
-        setList(data[user].todo);
-        // setList(data[user].todo[0]);
-        console.log('data[user].todo: ', data[user].todo);  
+        // setList(data[user].todo);
+        setList(data[user].todo[0]);
+        console.log('data[user].todo[0]: ', data[user].todo[0]);  
       }
     }
   }
@@ -28,14 +30,14 @@ export default function Todo({ list, setList }) {
       (item.id === id ? { ...item, checked: !item.checked } : item));
     setList(listItems);
     localStorage.setItem("shoppinglist", JSON.stringify(listItems));
-    updateList(1, listItems)
+    updateList(userId, listItems)
   };
 
   const handelDelete = async (id) => {
     const listItems = list.filter((item) => item.id !== id);
     setList(listItems);
     localStorage.setItem("shoppinglist", JSON.stringify(listItems));
-    updateList(1, listItems)
+    updateList(userId, listItems)
   };
 
   return (

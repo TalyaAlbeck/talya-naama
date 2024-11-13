@@ -10,18 +10,13 @@
       "todo": [
         [
           {
-            "id": 1,
-            "item": "nini",
-            "checked": false
-          },
-          {
             "id": 2,
-            "item": "nana",
+            "item": "nanana",
             "checked": false
           },
           {
             "id": 3,
-            "item": "nnn",
+            "item": "item 1",
             "checked": false
           }
         ]
@@ -187,6 +182,11 @@
           {
             "id": 2,
             "item": "nanana",
+            "checked": false
+          },
+          {
+            "id": 3,
+            "item": "item 1",
             "checked": false
           }
         ]

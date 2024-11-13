@@ -3,7 +3,6 @@ import { updateList } from '../../server';
 
 export default function AddItem({list, setList}) {
     const [newItem, setNewItem] = useState('');
-
     const userId = JSON.parse(localStorage.getItem("current User")).id
 
     function handleSubmit(e) {
