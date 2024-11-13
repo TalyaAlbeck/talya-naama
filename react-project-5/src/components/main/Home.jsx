@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>this is home</h1>
+      <h1>welcome home, {localStorage.getItem("current User")}</h1>
 
       {!showInfo && (
         <>
