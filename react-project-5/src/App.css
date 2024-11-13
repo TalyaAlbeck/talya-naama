@@ -10,18 +10,19 @@ nav {
   top: 1px;
   left: -1px;
   width: 100vw;
-  height: 50px;
-  background-color: rgb(238, 199, 115);
+  height: 55px;
+  background-color: rgb(144, 202, 206);
   /* display: inline-flex; */
   flex-direction: row;
 }
 .nav {
+  color: rgb(95, 128, 196);
   justify-content: space-around;
   padding: 10px 20px ;
   position: relative;
   top: 30%;
     &&:hover {
-      background-color: rgb(242, 212, 173);
+      background-color: rgb(122, 178, 179);
     }
 }
 
@@ -35,4 +36,11 @@ footer {
 button {
   width: auto;
   height: 25px;
+}
+
+#search {
+  width: 200px;
+}
+#addItem {
+  width: 150px;
 }
