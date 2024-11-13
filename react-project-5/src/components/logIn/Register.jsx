@@ -30,7 +30,8 @@ export default function Register() {
                 username: userName,
                 email: mail,
                 phone: phone,
-                website: password
+                website: password,
+                todo: []
             })
         })
         .then(()=>localStorage.setItem("current User", JSON.stringify(userName)))
