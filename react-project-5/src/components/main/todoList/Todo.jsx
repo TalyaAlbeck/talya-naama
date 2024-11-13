@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import AddItem from "./AddItem";
+import apiRequests, {updateList} from '../../server';
 
 export default function Todo({ list, setList }) {
   const currentUser = JSON.parse(localStorage.getItem("current User"));
+  const [fetchError, setFetchError] = useState(null)
 
   useEffect(() => {
     fetch("http://localhost:3000/users/")
@@ -20,16 +22,19 @@ export default function Todo({ list, setList }) {
     }
   }
 
-  const handleCheck = (id) => {
-    const listItems = list.map((item) => (item.id === id ? { ...item, checked: !item.checked } : item));
+  const handleCheck = async (id) => {
+    const listItems = list.map((item) => 
+      (item.id === id ? { ...item, checked: !item.checked } : item));
     setList(listItems);
     localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+    updateList(1, listItems)
   };
 
-  const handelDelete = (id) => {
+  const handelDelete = async (id) => {
     const listItems = list.filter((item) => item.id !== id);
     setList(listItems);
     localStorage.setItem("shoppinglist", JSON.stringify(listItems));
+    updateList(1, listItems)
   };
 
   return (

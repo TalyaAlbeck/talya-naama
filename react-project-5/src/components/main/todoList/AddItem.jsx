@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
-import apiRequests from '../../server';
+import apiRequests, {updateList} from '../../server';
 
 export default function AddItem({list, setList}) {
-
     const [newItem, setNewItem] = useState('');
-    const [fetchError, setFetchError] = useState(null)
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -14,19 +12,13 @@ export default function AddItem({list, setList}) {
         setNewItem('');
     }
 
-    async function addItem(item) {
+    function addItem(item) {
         const id = list.length ? list[list.length - 1].id + 1 : 1;
         const myNewItem = {id, item, checked: false};
         const listItems = [...list, myNewItem];
         setList(listItems);
         localStorage.setItem('shoppinglist', JSON.stringify(listItems));
-
-        const updateOption = {
-            method: 'PATCH',
-            body: JSON.stringify({todo: [listItems]})
-        }
-        const result = await apiRequests('http://localhost:3000/users/13', updateOption);
-        if (result) setFetchError(result);
+        updateList(1, listItems)
     }
 
   return (

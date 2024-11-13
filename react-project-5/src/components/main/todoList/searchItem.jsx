@@ -4,7 +4,6 @@ import Todo from "./Todo";
 export default function SearchItem() {
   const [search, setSearch] = useState("");
   const [list, setList] = useState([]);
-  console.log("list: ", list);
 
   return (
     <>
