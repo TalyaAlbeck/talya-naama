@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import AddItem from "./AddItem";
+import SearchItem from "./searchItem";
 
-export default function Todo (){
+export default function Todo ({list, setList}){
 
-    const [list, setList] = useState([])
     const currentUser = JSON.parse(localStorage.getItem("current User"))
 
     useEffect(() => {
@@ -34,7 +34,6 @@ export default function Todo (){
     }
 
     return (<>
-        <p>hi from todo</p>
         <AddItem list={list} setList={setList} />
             {list.length ? (
                 <ul>
