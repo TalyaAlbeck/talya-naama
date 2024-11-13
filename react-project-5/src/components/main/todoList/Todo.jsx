@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
+import AddItem from "./AddItem";
 
 export default function Todo (){
 
     const [list, setList] = useState([])
     const currentUser = JSON.parse(localStorage.getItem("current User"))
 
+    useEffect(() => {
         fetch("http://localhost:3000/users/")
         .then((res) => res.json())
         .then((data) => {getUser(data)})
+    }, [])
 
 
     function getUser(data) {
@@ -32,7 +35,8 @@ export default function Todo (){
 
     return (<>
         <p>hi from todo</p>
-         {list.length ? (
+        <AddItem />
+            {list.length ? (
                 <ul>
                     {list.map((item) => (
                         <li className="item" key={item.id}>

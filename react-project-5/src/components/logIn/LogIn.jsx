@@ -14,10 +14,11 @@ export default function LogIn() {
   }, [])
 
     function handelSubmit() {        
-        for (let user in data) {
+        for (let user in data) {            
             if(userName === data[user].username && password === data[user].website) {
                 <Link to="/register">dont have user? click here</Link>
-                localStorage.setItem("current User", JSON.stringify(userName) )
+                localStorage.setItem("current User", JSON.stringify(userName))
+                // localStorage.setItem("shoppinglist", JSON.stringify(data[user].todo))
                 return (
                     true,
                     console.log(data[user])

@@ -6,27 +6,18 @@ import LogIn from './components/logIn/LogIn'
 import Register from './components/logIn/Register';
 import Home from './components/main/Home';
 import Info from './components/main/Info';
-import Todo from './components/main/Todo';
+import Todo from './components/main/todoList/Todo';
 import Posts from './components/main/Posts';
 import Album from './components/main/Album';
 import Layout from './components/Layout';
 
 function App() {
-  const [data, setData] = useState(null)
-  useEffect(() => {fetch("http://localhost:3000/users")
-      .then((res) => res.json())
-      .then((dat) => {setData(dat); console.log(data)})
-  }, [])
-  
   return (
     <>
     
 
 
     <Router>
-     
-     <h1>{!data ? "loading..." : data[0].username}</h1>
-
 
      <Routes>
         <Route path="/" element={<LogIn />} />

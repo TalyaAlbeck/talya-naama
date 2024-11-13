@@ -31,3 +31,8 @@ footer {
   text-align: center;
   left: 48%;
 }
+
+button {
+  width: auto;
+  height: 25px;
+}
