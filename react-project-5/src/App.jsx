@@ -41,6 +41,8 @@ function App() {
             <Route path="/posts" element={<Posts />} />
             <Route path="/album" element={< Album/>} />
         </Route>
+
+        <Route path="/*" element={<LogIn />} />
      </Routes>
      </Router>
     </>
