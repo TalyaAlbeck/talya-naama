@@ -7,9 +7,12 @@ import Register from "./components/logIn/Register";
 import Home from "./components/main/Home";
 import Info from "./components/main/Info";
 import Todo from "./components/main/todoList/Todo";
-import Posts from "./components/main/Posts";
+import Posts from "./components/main/posts/Posts";
 import Album from "./components/main/Album";
 import Layout from "./components/Layout";
+import MyPosts from "./components/main/posts/MyPost";
+import AllPosts from "./components/main/posts/AllPosts";
+import NotFound from "./components/main/NotFound";
 
 function App() {
   const [username, setUserName] = useState();
@@ -27,11 +30,13 @@ function App() {
               <Route path="info" element={<Info />} />
             </Route>
             <Route path="/todo" element={<Todo />} />
-            <Route path="/posts" element={<Posts />} />
+            <Route path="/posts" element={<Posts />}>
+              <Route path="myPosts" element={<MyPosts />} />
+              <Route path="allPosts" element={<AllPosts />} />
+            </Route>
             <Route path="/album" element={<Album />} />
           </Route>
-
-          <Route path="/*" element={<LogIn />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </Router>
     </>

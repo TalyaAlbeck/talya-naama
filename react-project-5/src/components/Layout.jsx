@@ -1,22 +1,20 @@
-import { Link, Outlet } from "react-router-dom"
-export default function Layout(){
-   
-    function handleLogout(){
-        localStorage.removeItem("current User");
-        localStorage.removeItem("shoppinglist");
-    }
+import { Link, Outlet } from "react-router-dom";
+export default function Layout() {
+  function handleLogout() {
+    localStorage.removeItem("current User");
+    localStorage.removeItem("shoppinglist");
+  }
 
   const isLoggedIn = localStorage.getItem("current User");
 
-    // console.log("is logged in" ,isLoggedIn);
-    // console.log("type of: is logged in:" ,typeof(isLoggedIn));
-    return(
-   <>
-   {typeof(localStorage.getItem("current User"))==="string"?
+  return (
     <>
-
-        <nav>
-            <Link to="/home" className="nav">Home</Link>
+      {typeof localStorage.getItem("current User") === "string" ? (
+        <>
+          <nav>
+            <Link to="/home" className="nav">
+              Home
+            </Link>
             {/* <br/> */}
             <Link to="/posts" className="nav">
               Posts
