@@ -1,5 +1,5 @@
 // Register.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MoreInfo from "./MoreInfo"; // Import the second step component
 
@@ -11,11 +11,31 @@ export default function Register() {
 
   const navigate = useNavigate();
 
+  const [data, setData] = useState(null)
+    
+    useEffect(() => {
+      fetch("http://localhost:3000/users")
+      .then((res) => res.json())
+      .then((dat) => {setData(dat); console.log(data)})
+  }, [])
+
   function handleNext() {
-    if (password === verifyPassword) {
-      setShowMoreInfo(true);
-    } else {
+    if (password !== verifyPassword) {
       alert("Passwords do not match");
+      console.log(data);
+      
+    } else if (checkExistingUsers(name)) {
+      alert("this user is already exist");
+    } else {
+      setShowMoreInfo(true);
+    }
+  }
+
+  function checkExistingUsers(name) {
+    for (let user in data) {
+      if (data[user].name) {
+        return true;
+      }
     }
   }
 

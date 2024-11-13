@@ -1,5 +1,5 @@
 // MoreInfo.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function MoreInfo({ name, website, navigate }) {
   const [userName, setUserName] = useState("");
@@ -8,6 +8,14 @@ export default function MoreInfo({ name, website, navigate }) {
   const [todo, setTodo] = useState([]);
   const [registered, setRegistered] = useState(false);
 
+  const [data, setData] = useState(null)
+    
+    useEffect(() => {
+      fetch("http://localhost:3000/users")
+      .then((res) => res.json())
+      .then((dat) => {setData(dat); console.log(data)})
+  }, [])
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -15,6 +23,7 @@ export default function MoreInfo({ name, website, navigate }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        id: data.length + 1,
         name,
         username: userName,
         email,
