@@ -41,7 +41,7 @@ export default function Register() {
         <input placeholder="phone" onChange={({target}) => setPhone(target.value)} /> <br />
         <button type="submit" onClick={handelSubmit}>sign up</button>
         <br />
-        <p>Already have an account? <Link to="/login"> sign in</Link></p>
+        <p>Already have an account? <Link to="/login"> log in</Link></p>
     </div>
   )
 }

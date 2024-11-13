@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import App from '../App';
+import App from '../../App';
 
 export default function LogIn() {
     const [userName, setUserName] = useState("")
@@ -13,27 +13,22 @@ export default function LogIn() {
       .then((dat) => {setData(dat); console.log("hello from fetch")})
   }, [])
 
-    function handelSubmit() {
-        console.log('userName: ', userName);
-        console.log('data[user].username: ', data[user].username);
-        
+    function handelSubmit() {        
         for (let user in data) {
             if(userName === data[user].username && password === data[user].website) {
                 alert(`hello, ${userName}`);
                 return data[user].name;
-            } else {
-                alert("name or password are incorrect")
-                return;    
             }
         } 
+        alert("name or password are incorrect")
     }
 
     return (
         <>
             <input placeholder="userName" onChange={({target}) => setUserName(target.value)}/> <br />
             <input placeholder="password" onChange={({target}) => setPassword(target.value)}/> <br />
-            <button type="submit" onClick={handelSubmit}>log in</button>
-            <Link to="/register">dont have user?  click here</Link>
+            <button type="submit" onClick={handelSubmit}>log in</button><br />
+            <Link to="/register">dont have user? click here</Link>
         </>
     )
 }
