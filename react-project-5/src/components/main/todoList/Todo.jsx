@@ -35,11 +35,11 @@ export default function Todo (){
 
     return (<>
         <p>hi from todo</p>
-        <AddItem />
+        <AddItem list={list} setList={setList} />
             {list.length ? (
                 <ul>
                     {list.map((item) => (
-                        <li className="item" key={item.id}>
+                        <p className="item" key={item.id}>
                             <input
                                 type="checkbox"
                                 onChange={() => handleCheck(item.id)}
@@ -51,7 +51,7 @@ export default function Todo (){
                             <button
                                 onClick={() => handelDelete(item.id)}
                             >-</button>
-                        </li>
+                        </p>
                     ))}
                 </ul>
             ) : (

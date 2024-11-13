@@ -3,12 +3,13 @@ export default function Layout(){
    
     function handleLogout(){
         localStorage.removeItem("current User");
+        localStorage.removeItem("shoppinglist");
     }
 
     const isLoggedIn = localStorage.getItem("current User");
 
-    console.log("is logged in" ,isLoggedIn);
-    console.log("type of: is logged in:" ,typeof(isLoggedIn));
+    // console.log("is logged in" ,isLoggedIn);
+    // console.log("type of: is logged in:" ,typeof(isLoggedIn));
     return(
    <>
    {typeof(localStorage.getItem("current User"))==="string"?
