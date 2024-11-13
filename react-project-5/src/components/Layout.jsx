@@ -16,11 +16,8 @@ export default function Layout(){
 
         <nav>
             <Link to="/home">Home</Link>
-            <br/>
             <Link to="/posts">Posts</Link>
-            <br/>
             <Link to="/album">Album</Link>
-            <br/>
             <Link to="/todo">To-do</Link>
         </nav>
         <footer>
