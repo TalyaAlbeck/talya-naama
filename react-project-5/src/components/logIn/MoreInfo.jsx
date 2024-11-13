@@ -1,10 +1,11 @@
 // MoreInfo.js
 import React, { useState } from "react";
 
-export default function MoreInfo({ name, password, navigate }) {
+export default function MoreInfo({ name, website, navigate }) {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [todo, setTodo] = useState([]);
   const [registered, setRegistered] = useState(false);
 
   function handleSubmit(e) {
@@ -18,7 +19,8 @@ export default function MoreInfo({ name, password, navigate }) {
         username: userName,
         email,
         phone,
-        password,
+        website,
+        todo,
       }),
     }).then(() => {
       localStorage.setItem("current User", JSON.stringify(userName));

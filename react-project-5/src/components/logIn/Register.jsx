@@ -20,7 +20,7 @@ export default function Register() {
   }
 
   if (showMoreInfo) {
-    return <MoreInfo name={name} password={password} navigate={navigate} />;
+    return <MoreInfo name={name} website={password} navigate={navigate} />;
   }
 
   return (
