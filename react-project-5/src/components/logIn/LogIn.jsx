@@ -31,7 +31,7 @@ export default function LogIn() {
     return (
         <>
             <input placeholder="userName" onChange={({target}) => setUserName(target.value)}/> <br />
-            <input placeholder="password" onChange={({target}) => setPassword(target.value)}/> <br />
+            <input placeholder="password" onChange={({target}) => setPassword(target.value)}/> <br /><br />
             <button type="submit" onClick={handelSubmit}><Link to={handelSubmit ? "/home" : "/"}>log in</Link></button><br />
             <Link to="/register">dont have user? click here</Link>
         </>
