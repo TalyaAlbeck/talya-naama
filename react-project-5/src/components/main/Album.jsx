@@ -1,3 +1,1 @@
-export default function Album (){
-    return <>hi from album</>
-}
+export default function Album() {}
