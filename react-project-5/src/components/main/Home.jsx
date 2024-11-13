@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import Info from "./Info";
 
 export default function Home() {
