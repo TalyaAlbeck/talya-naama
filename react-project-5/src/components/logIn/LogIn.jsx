@@ -17,7 +17,8 @@ export default function LogIn() {
         for (let user in data) {
             if(userName === data[user].username && password === data[user].website) {
                 alert(`hello, ${userName}`);
-                return data[user].name;
+                <Link to="/register">dont have user? click here</Link>
+                return true;
             }
         } 
         alert("name or password are incorrect")
@@ -27,7 +28,7 @@ export default function LogIn() {
         <>
             <input placeholder="userName" onChange={({target}) => setUserName(target.value)}/> <br />
             <input placeholder="password" onChange={({target}) => setPassword(target.value)}/> <br />
-            <button type="submit" onClick={handelSubmit}>log in</button><br />
+            <button type="submit" onClick={handelSubmit}><Link to={handelSubmit ? "/home" : "/"}>log in</Link></button><br />
             <Link to="/register">dont have user? click here</Link>
         </>
     )
