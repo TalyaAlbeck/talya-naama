@@ -20,7 +20,6 @@ export default function AddItem() {
         <button
             className='addItemButton'
             type='submit'
-            aria-label='Add Item'
             onClick={addItem}
         >+</button>
     </form>

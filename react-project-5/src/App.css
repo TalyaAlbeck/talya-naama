@@ -20,9 +20,9 @@ nav {
   padding: 10px 20px ;
   position: relative;
   top: 30%;
-}
-.nav:hover {
-  background-color: rgb(242, 212, 173);
+    &&:hover {
+      background-color: rgb(242, 212, 173);
+    }
 }
 
 footer {
