@@ -15,7 +15,7 @@ import AllPosts from "./components/main/posts/AllPosts";
 import NotFound from "./components/main/NotFound";
 
 function App() {
-  const [username, setUserName] = useState();
+  document.title = 'talya & naama';
 
   return (
     <>
