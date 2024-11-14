@@ -35,41 +35,52 @@ export default function AllPosts() {
     }
   }
 
-  console.log(posts[commentIndex]);
+  //   console.log(posts[commentIndex]);
 
   return (
     <>
       {posts.length ? (
-
-        <div className="shownPost">
-          <div>
-            <strong>Post Nr.</strong> {posts[commentIndex].id}
+        <>
+          <div className="shownPost">
+            <div>
+              <strong>Post Nr.</strong> {JSON.stringify(posts[commentIndex].id)}
+            </div>
+            <div>
+              <strong>Title:</strong> {JSON.stringify(posts[commentIndex].title)}
+            </div>
+            <div>
+              <strong>Post:</strong> {JSON.stringify(posts[commentIndex].body)}
+            </div>
+            <br />
+            <button
+              className="previousPost"
+              disabled={disable}
+              onClick={() => {
+                commentIndex <= 0 ? (disable = true) : setCommentIndex((prev) => prev - 1);
+              }}
+            >
+              previous post
+            </button>
+            <button
+              className="nextPost"
+              onClick={() => {
+                commentIndex >= posts.length - 1 ? (disable = true) : setCommentIndex((prev) => prev + 1);
+              }}
+            >
+              next post
+            </button>
           </div>
-          <div>
-            <strong>Title:</strong> {posts[commentIndex].title}
-          </div>
-          <div>
-            <strong>Post:</strong> {posts[commentIndex].body}
-          </div>
-          <br />
-          <button
-            className="previousPost"
-            disabled={disable}
-            onClick={() => {
-              commentIndex <= 0 ? (disable = true) : setCommentIndex((prev) => prev - 1);
-            }}
-          >
-            previous post
-          </button>
-          <button
-            className="nextPost"
-            onClick={() => {
-              commentIndex >= posts.length - 1 ? (disable = true) : setCommentIndex((prev) => prev + 1);
-            }}
-          >
-            next post
-          </button>
-        </div>
+          {showComment ? (
+            <>
+              <button onClick={commentHandler}>hide comments</button>
+              <Comments post={posts[commentIndex]} />
+            </>
+          ) : (
+            <>
+              <button onClick={commentHandler}>show comments</button>
+            </>
+          )}
+        </>
       ) : (
         // </ul>
         <p>loading...</p>
