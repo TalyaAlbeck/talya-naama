@@ -45,7 +45,7 @@ button {
   width: 150px;
 }
 
-.comment, .shownPost {
+.comment, .shownPost, .showMyPost {
   background-color: lightblue;
   width: 500px;
   min-height: 50px;

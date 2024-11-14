@@ -40,19 +40,6 @@ export default function AllPosts() {
   return (
     <>
       {posts.length ? (
-        // <ul key="1">
-        //   {posts.map((item) => (
-        //     item.id <= 10 &&
-        //     <div  className="comment" key={item.id}>
-        //     <p key={item.title}>
-        //       {item.body}
-        //     </p>
-        //     <button onClick={() => {commentHandler(item);
-        //       // item.isShoed = true;
-        //     }}>comments</button>
-        //     {showComment && <Comments post={item} />}
-        //     </div>
-        //   ))}
         <>
           <div className="shownPost">
             <div>

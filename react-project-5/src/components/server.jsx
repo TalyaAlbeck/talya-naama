@@ -27,3 +27,4 @@ export async function updateList(id, list) {
 const result = await apiRequests(`http://localhost:3000/users/${id}`, updateOption);
 if (result) setFetchError(result);
 }
+

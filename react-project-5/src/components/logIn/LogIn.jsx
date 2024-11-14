@@ -17,6 +17,7 @@ export default function LogIn() {
       if (userName === data[user].username && password === data[user].website) {
         <Link to="/register">dont have user? click here</Link>;        
         localStorage.setItem("current User", JSON.stringify(data[user]));
+        
         return true;
       }
     }
