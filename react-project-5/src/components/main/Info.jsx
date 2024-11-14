@@ -24,16 +24,16 @@ export default function Info() {
   return (
     <>
       {userInfo ? (
-        <>
-          Name: {JSON.stringify(userInfo.username)}
+        <div className="info">
+          Name: {(userInfo.username)}
           <br />
-          Emali: {JSON.stringify(userInfo.email)}
+          Emali: {(userInfo.email)}
           <br />
-          Phone: {JSON.stringify(userInfo.phone)}
+          Phone: {(userInfo.phone)}
           <br />
-        </>
+        </div>
       ) : 
-      <h1>loading...</h1>}
+      <p></p>}
     </>
   );
 }

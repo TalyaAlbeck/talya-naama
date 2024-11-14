@@ -26,18 +26,18 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<Register />} />
 
-          <Route element={<Layout />}>
-            <Route path="/home" element={<Home />}>
+          <Route path="/user/:userId" element={<Layout />}>
+            <Route path="home" element={<Home />}>
               <Route path="info" element={<Info />} />
             </Route>
-            <Route path="/todo" element={<SearchItem />} />
-            <Route path="/posts" element={<Posts />}>
+            <Route path="todo" element={<SearchItem />} />
+            <Route path="posts" element={<Posts />}>
               <Route path="myPosts" element={<MyPosts />} />
               <Route path="allPosts" element={<AllPosts />} />
             </Route>
-            <Route path="/album" element={<Album />} />
+            <Route path="album" element={<Album />} />
           </Route>
-          <Route path="/*" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </>

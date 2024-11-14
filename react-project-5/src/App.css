@@ -95,3 +95,13 @@ ul.listItems {
   border: 2px solid rgb(76, 146, 187);
   border-radius: 20px;
 }
+.comment {
+  border-top: 2px solid lightblue;
+  padding-top: 20px;
+}
+
+.info {
+  position: absolute;
+  top: 65%;
+  left: 45%;
+}

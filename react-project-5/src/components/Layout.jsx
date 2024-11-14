@@ -12,19 +12,19 @@ export default function Layout() {
       {typeof localStorage.getItem("current User") === "string" ? (
         <>
           <nav>
-            <Link to="/home" className="nav">
+            <Link to="home" className="nav">
               Home
             </Link>
             {/* <br/> */}
-            <Link to="/posts" className="nav">
+            <Link to="posts" className="nav">
               Posts
             </Link>
             {/* <br/> */}
-            <Link to="/album" className="nav">
+            <Link to="album" className="nav">
               Album
             </Link>
             {/* <br/> */}
-            <Link to="/todo" className="nav">
+            <Link to="todo" className="nav">
               To-do
             </Link>
           </nav>

@@ -35,7 +35,7 @@ export default function MoreInfo({ name, website, navigate }) {
     .then((dat) => {
       localStorage.setItem("current User", JSON.stringify(dat));
       setRegistered(true);
-      setTimeout(() => navigate("/home"), 1300);
+      setTimeout(() => navigate(`/user/${dat.id}/home`), 100);
     })
   }
 
