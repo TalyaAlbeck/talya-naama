@@ -17,9 +17,8 @@ export default function Todo({ list, setList }) {
   function getUser(data) {
     for (let user in data) {
       if (currentUser.username === data[user].username) {
-        // setList(data[user].todo);
-        setList(data[user].todo[0]);
-        console.log("data[user].todo[0]: ", data[user].todo[0]);
+        setList(data[user].todo);
+        // setList(data[user].todo[0]);
       }
     }
   }
@@ -38,11 +37,12 @@ export default function Todo({ list, setList }) {
     updateList(userId, listItems);
   };
 
+
   return (
     <>
       <AddItem list={list} setList={setList} />
       {list.length ? (
-        <ul className="listItems">
+        <ul className="listItems" >
           <h2>To-Do List:</h2>
           {list.map((item) => (
             <p className="item" key={item.id}>

@@ -13,7 +13,6 @@ export default function MyPosts() {
       .then((data) => {
 
         const userPosts = data.filter(item => JSON.stringify(item.userId) === id)
-        console.log("userPosts: ", userPosts);
         setMyPosts(userPosts);
       });
     

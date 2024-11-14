@@ -53,22 +53,40 @@ ul.listItems {
   border: 1.5px solid rgb(76, 146, 187);
   border-radius: 20px;
   padding: 10px;
+  width: 300px;
+  height: 400x;
+  max-height: 400px;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+  top: 50px;
+}
+.inputForm1 {
+  position: absolute;
+  top: 80px;
+  left: 42%;
+}
+.inputForm2 {
+  position: absolute;
+  top: 108px;
+  left: 42%;
 }
 
 .shownPost, .showMyPost {
   background-color: lightblue;
   width: 450px;
-  min-height: 50px;
+  min-height: 70px;
   padding: 20px;
   margin: 20px;
   border-radius: 20px;
   border: 2px solid rgb(76, 146, 187);
   position: relative;
-  left: -300px;
+  left: -13%;
 }
 .commentsDiv{
   position: absolute;
-  right: 100px;
+  right: 5%;
   top: 80px;
   width: 300px;
   height: 500px;

@@ -8,7 +8,6 @@ export default function AddItem({list, setList}) {
     function handleSubmit(e) {
         e.preventDefault();
         if (!newItem) return;
-        console.log(newItem); 
         addItem(newItem);
         setNewItem('');
     }
@@ -23,7 +22,7 @@ export default function AddItem({list, setList}) {
     }
 
   return (
-    <form className='addForm' onSubmit={handleSubmit}>
+    <form className='addForm inputForm2' onSubmit={handleSubmit}>
         {/* <label htmlFor='addItem'>Add Item</label> */}
         <input 
             autoFocus

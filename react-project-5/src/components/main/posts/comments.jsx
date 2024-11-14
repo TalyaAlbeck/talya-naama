@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Comments({ post }) {
-  // console.log(post.id, post.body);
-
+export default function Comments({ post, postIndex }) {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -11,17 +9,13 @@ export default function Comments({ post }) {
       .then((data) => {
         setComments(data.filter((item) => item.postId == post.id));
       });
-  }, []);
+  }, [postIndex]);
 
   return (
     <div>
       {comments.map((item) => (
-        <p key={item.id}>{item.body}</p> // Render each comment's body with a unique key
+        <p key={item.id}>{item.body}</p>
       ))}
-      {/* //   {comments.map((item) => { */}
-      {/* //     <p key={item.id}>{item.body}</p>;
-    //   })} */}
-      // {/* <h1>{JSON.stringify(comments)}</h1> */}
     </div>
   );
 }

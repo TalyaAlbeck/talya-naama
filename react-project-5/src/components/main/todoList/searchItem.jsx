@@ -8,10 +8,9 @@ export default function SearchItem() {
   return (
     <>
       <form
-        className="searchForm form"
+        className="searchForm inputForm1"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(search);
         }}
       >
         <input

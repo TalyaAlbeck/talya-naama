@@ -4,7 +4,7 @@ import Comments from "./comments";
 export default function AllPosts() {
   const [posts, setPosts] = useState([]);
   const [showComment, setShowComment] = useState(false);
-  const [commentIndex, setCommentIndex] = useState(0);
+  const [postIndex, setPostIndex] = useState(0);
   //   const currentUser = JSON.parse(localStorage.getItem("current User")).id;
 
   let disable = false;
@@ -13,7 +13,6 @@ export default function AllPosts() {
     fetch("http://localhost:3000/posts/")
       .then((res) => res.json())
       .then((data) => {
-        console.log("data: ", data);
         setPosts(data);
       });
   }, []);
@@ -33,28 +32,28 @@ export default function AllPosts() {
         <>
           <div className="shownPost">
             <div>
-              <strong>Post Nr.</strong> {JSON.stringify(posts[commentIndex].id)}
+              <strong>Post Nr.</strong> {JSON.stringify(posts[postIndex].id)}
             </div>
             <div>
-              <strong>Title:</strong> {JSON.stringify(posts[commentIndex].title)}
+              <strong>Title:</strong> {JSON.stringify(posts[postIndex].title)}
             </div>
             <div>
-              <strong>Post:</strong> {JSON.stringify(posts[commentIndex].body)}
+              <strong>Post:</strong> {JSON.stringify(posts[postIndex].body)}
             </div>
             <br />
             <button
               className="previousPost"
               disabled={disable}
               onClick={() => {
-                commentIndex <= 0 ? (disable = true) : setCommentIndex((prev) => prev - 1);
+                postIndex <= 0 ? (disable = true) : setPostIndex((prev) => prev - 1);
               }}
             >
               previous post
-            </button>
+            </button>&nbsp;
             <button
               className="nextPost"
               onClick={() => {
-                commentIndex >= posts.length - 1 ? (disable = true) : setCommentIndex((prev) => prev + 1);
+                postIndex >= posts.length - 1 ? (disable = true) : setPostIndex((prev) => prev + 1);
               }}
             >
               next post
@@ -63,7 +62,7 @@ export default function AllPosts() {
           {showComment ? (
             <div className="commentsDiv">
               <button onClick={commentHandler}>hide comments</button>
-              <Comments post={posts[commentIndex]} />
+              <Comments post={posts[postIndex]} postIndex={postIndex} />
             </div>
           ) : (
             <div className="commentsDiv">
@@ -72,7 +71,6 @@ export default function AllPosts() {
           )}
         </>
       ) : (
-        // </ul>
         <p>loading...</p>
       )}
     </>
