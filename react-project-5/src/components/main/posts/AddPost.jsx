@@ -26,7 +26,6 @@ export default function AddPost({ setMyPosts }) {
         });
       });
 
-    console.log(newPost);
   }
   return (
     <>

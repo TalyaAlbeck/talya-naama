@@ -10,15 +10,6 @@ const apiRequests = async (url = '', optionsObj = null, errMsg = null) => {
     }
 }
 
-export default apiRequests;
-
-// const postOptions = {
-//     method: 'post',
-//     body: JSON.stringify(myNewItem)
-// }
-// const result = await apiRequests('http://localhost:3000/users', postOptions);
-// if (result) setFetchError(result);
-
 export async function updateList(id, list) {
     const updateOption = {
     method: 'PATCH',

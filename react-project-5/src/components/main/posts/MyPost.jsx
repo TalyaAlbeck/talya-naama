@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import AddPost from "./AddPost";
+import Comments from "./comments";
 
 export default function MyPosts() {
   const [myPosts, setMyPosts] = useState([]);
@@ -59,15 +60,15 @@ export default function MyPosts() {
             </button>
           </div>
           {showComment ? (
-            <>
+            <div className="commentsDiv">
               <button onClick={commentHandler}>hide comments</button>
+              <Comments post={myPosts[postIndex]} postIndex={postIndex} />
               {/* <Comments post={posts[postIndex]} postIndex={postIndex} /> */}
-              {/* <Comments post={posts[postIndex]} postIndex={postIndex} /> */}
-            </>
+            </div>
           ) : (
-            <>
+            <div className="commentsDiv">
               <button onClick={commentHandler}>show comments</button>
-            </>
+            </div>
           )}
         </>
       ) : (
