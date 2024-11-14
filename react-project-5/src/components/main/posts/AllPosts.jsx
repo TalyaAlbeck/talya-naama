@@ -83,6 +83,10 @@ export default function AllPosts() {
           >
             next post
           </button>
+          <div>
+            <h5>comments:</h5>
+            <Comments post={posts[commentIndex]} />
+          </div>
         </div>
       ) : (
         // </ul>
