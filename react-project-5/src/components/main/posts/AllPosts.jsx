@@ -5,7 +5,6 @@ export default function AllPosts() {
   const [posts, setPosts] = useState([]);
   const [showComment, setShowComment] = useState(false);
   const [postIndex, setPostIndex] = useState(0);
-  //   const currentUser = JSON.parse(localStorage.getItem("current User")).id;
 
   let disable = false;
 

@@ -13,7 +13,7 @@ export default function AddPost({ setMyPosts }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        userId: currentUser.id,
+        userId: JSON.parse(currentUser.id),
         id: Math.random() * 10000000,
         title: "post title",
         body: newPost,

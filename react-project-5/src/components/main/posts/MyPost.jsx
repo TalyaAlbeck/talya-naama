@@ -62,6 +62,7 @@ export default function MyPosts() {
             <>
               <button onClick={commentHandler}>hide comments</button>
               {/* <Comments post={posts[postIndex]} postIndex={postIndex} /> */}
+              {/* <Comments post={posts[postIndex]} postIndex={postIndex} /> */}
             </>
           ) : (
             <>
