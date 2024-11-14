@@ -55,7 +55,6 @@ console.log(posts[commentIndex]);
         //     {showComment && <Comments post={item} />}
         //     </div>
         //   ))}
-        //   <br /><br />
 
         <div className="shownPost">
           {JSON.stringify(posts[commentIndex])}
