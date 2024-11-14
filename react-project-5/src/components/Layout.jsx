@@ -2,7 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 export default function Layout() {
   function handleLogout() {
     localStorage.removeItem("current User");
-    localStorage.removeItem("shoppinglist");
+    localStorage.removeItem("list");
   }
 
   const isLoggedIn = localStorage.getItem("current User");

@@ -18,7 +18,7 @@ export default function AddItem({list, setList}) {
         const myNewItem = {id, item, checked: false};
         const listItems = [...list, myNewItem];
         setList(listItems);
-        localStorage.setItem('shoppinglist', JSON.stringify(listItems));
+        localStorage.setItem('list', JSON.stringify(listItems));
         updateList(userId, listItems)
     }
 

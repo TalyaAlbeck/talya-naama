@@ -40,29 +40,16 @@ export default function AllPosts() {
   return (
     <>
       {posts.length ? (
-        // <ul key="1">
-        //   {posts.map((item) => (
-        //     item.id <= 10 &&
-        //     <div  className="comment" key={item.id}>
-        //     <p key={item.title}>
-        //       {item.body}
-        //     </p>
-        //     <button onClick={() => {commentHandler(item);
-        //       // item.isShoed = true;
-        //     }}>comments</button>
-        //     {showComment && <Comments post={item} />}
-        //     </div>
-        //   ))}
 
         <div className="shownPost">
           <div>
-            <strong>Post Nr.</strong> {JSON.stringify(posts[commentIndex].id)}
+            <strong>Post Nr.</strong> {posts[commentIndex].id}
           </div>
           <div>
-            <strong>Title:</strong> {JSON.stringify(posts[commentIndex].title)}
+            <strong>Title:</strong> {posts[commentIndex].title}
           </div>
           <div>
-            <strong>Post:</strong> {JSON.stringify(posts[commentIndex].body)}
+            <strong>Post:</strong> {posts[commentIndex].body}
           </div>
           <br />
           <button
@@ -77,7 +64,7 @@ export default function AllPosts() {
           <button
             className="nextPost"
             onClick={() => {
-              commentIndex > posts.length ? (disable = true) : setCommentIndex((prev) => prev + 1);
+              commentIndex >= posts.length - 1 ? (disable = true) : setCommentIndex((prev) => prev + 1);
             }}
           >
             next post

@@ -10,7 +10,7 @@ import SearchItem from './components/main/todoList/searchItem';
 import Posts from './components/main/posts/Posts';
 import Album from './components/main/Album';
 import Layout from './components/Layout';
-import apiRequests from './components/server';
+// import apiRequests from './components/server';
 import MyPosts from "./components/main/posts/MyPost";
 import AllPosts from "./components/main/posts/AllPosts";
 import NotFound from "./components/main/NotFound";
