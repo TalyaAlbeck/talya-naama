@@ -42,10 +42,11 @@ export default function Todo({ list, setList }) {
     <>
       <AddItem list={list} setList={setList} />
       {list.length ? (
-        <ul>
+        <ul className="listItems">
+          <h2>To-Do List:</h2>
           {list.map((item) => (
             <p className="item" key={item.id}>
-              <input type="checkbox" onChange={() => handleCheck(item.id)} checked={item.checked} />
+              <input className="" type="checkbox" onChange={() => handleCheck(item.id)} checked={item.checked} />
               <label style={item.checked ? { textDecoration: "line-through" } : null}>{item.item}</label>
               <button onClick={() => handelDelete(item.id)}>-</button>
             </p>

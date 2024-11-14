@@ -18,15 +18,6 @@ export default function AllPosts() {
       });
   }, []);
 
-  // function getUser(data) {
-  //   for (let user in data) {
-  //     if (currentUser.username === data[user].username) {
-  //       setList(data[user].todo[0]);
-  //       console.log('data[user].todo: ', data[user].todo);
-  //     }
-  //   }
-  // }
-
   function commentHandler(item) {
     if (!showComment) {
       setShowComment(true);
@@ -35,7 +26,6 @@ export default function AllPosts() {
     }
   }
 
-  //   console.log(posts[commentIndex]);
 
   return (
     <>
@@ -71,14 +61,14 @@ export default function AllPosts() {
             </button>
           </div>
           {showComment ? (
-            <>
+            <div className="commentsDiv">
               <button onClick={commentHandler}>hide comments</button>
               <Comments post={posts[commentIndex]} />
-            </>
+            </div>
           ) : (
-            <>
+            <div className="commentsDiv">
               <button onClick={commentHandler}>show comments</button>
-            </>
+            </div>
           )}
         </>
       ) : (

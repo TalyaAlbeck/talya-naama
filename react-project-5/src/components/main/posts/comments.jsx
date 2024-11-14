@@ -14,7 +14,7 @@ export default function Comments({ post }) {
   }, []);
 
   return (
-    <>
+    <div>
       {comments.map((item) => (
         <p key={item.id}>{item.body}</p> // Render each comment's body with a unique key
       ))}
@@ -22,6 +22,6 @@ export default function Comments({ post }) {
       {/* //     <p key={item.id}>{item.body}</p>;
     //   })} */}
       // {/* <h1>{JSON.stringify(comments)}</h1> */}
-    </>
+    </div>
   );
 }
