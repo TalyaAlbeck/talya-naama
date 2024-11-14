@@ -12,10 +12,10 @@ export default function Comments({ post, postIndex }) {
   }, [postIndex]);
 
   return (
-    <>
+    <div>
       {comments.map((item) => (
         <p key={item.id}>{item.body}</p>
       ))}
-    </>
+    </div>
   );
 }

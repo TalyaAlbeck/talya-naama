@@ -15,7 +15,7 @@ export default function LogIn() {
   function handelSubmit() {
     for (let user in data) {
       if (userName === data[user].username && password === data[user].website) {
-        <Link to="/register">dont have user? click here</Link>;        
+        <Link to="/register"></Link>;        
         localStorage.setItem("current User", JSON.stringify(data[user]));
         
         return true;

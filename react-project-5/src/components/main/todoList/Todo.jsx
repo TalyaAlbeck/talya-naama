@@ -17,9 +17,8 @@ export default function Todo({ list, setList }) {
   function getUser(data) {
     for (let user in data) {
       if (currentUser.username === data[user].username) {
-        // setList(data[user].todo);
-        setList(data[user].todo[0]);
-        console.log("data[user].todo[0]: ", data[user].todo[0]);
+        setList(data[user].todo);
+        // setList(data[user].todo[0]);
       }
     }
   }
@@ -38,14 +37,16 @@ export default function Todo({ list, setList }) {
     updateList(userId, listItems);
   };
 
+
   return (
     <>
       <AddItem list={list} setList={setList} />
       {list.length ? (
-        <ul>
+        <ul className="listItems" >
+          <h2>To-Do List:</h2>
           {list.map((item) => (
             <p className="item" key={item.id}>
-              <input type="checkbox" onChange={() => handleCheck(item.id)} checked={item.checked} />
+              <input className="" type="checkbox" onChange={() => handleCheck(item.id)} checked={item.checked} />
               <label style={item.checked ? { textDecoration: "line-through" } : null}>{item.item}</label>
               <button onClick={() => handelDelete(item.id)}>-</button>
             </p>
