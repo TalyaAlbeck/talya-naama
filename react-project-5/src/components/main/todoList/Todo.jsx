@@ -17,8 +17,8 @@ export default function Todo({ list, setList }) {
   function getUser(data) {
     for (let user in data) {
       if (currentUser.username === data[user].username) {
-        setList(data[user].todo);
-        // setList(data[user].todo[0]);
+        // setList(data[user].todo);
+        setList(data[user].todo[0]);
         console.log("data[user].todo[0]: ", data[user].todo[0]);
       }
     }
