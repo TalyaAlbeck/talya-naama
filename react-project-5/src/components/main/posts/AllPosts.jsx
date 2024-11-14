@@ -53,7 +53,6 @@ export default function AllPosts() {
         //     {showComment && <Comments post={item} />}
         //     </div>
         //   ))}
-        //   <br /><br />
 
         <div className="shownPost">
           <div>
